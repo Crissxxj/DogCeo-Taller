@@ -1,14 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f7f4ef;
-  color: #2b2b2b;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -16,11 +5,15 @@ body {
   padding: 16px 32px;
   background: #ffffff;
   border-bottom: 1px solid #e5e0d8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .navbar-brand {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #d97b2e;
+  letter-spacing: -0.5px;
 }
 
 .navbar-links a {
@@ -28,20 +21,28 @@ body {
   text-decoration: none;
   color: #2b2b2b;
   font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #d97b2e;
+  transition: width 0.2s ease;
 }
 
 .navbar-links a:hover {
   color: #d97b2e;
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-
-.page h1 {
-  margin-bottom: 4px;
+.navbar-links a:hover::after {
+  width: 100%;
 }
 
 .dog-grid {
@@ -57,6 +58,12 @@ body {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .dog-img {
@@ -64,10 +71,20 @@ body {
   height: 180px;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
+}
+
+.dog-card:hover .dog-img {
+  transform: scale(1.06);
 }
 
 .dog-name {
   padding: 10px;
   margin: 0;
   font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.dog-card:hover .dog-name {
+  color: #d97b2e;
 }
